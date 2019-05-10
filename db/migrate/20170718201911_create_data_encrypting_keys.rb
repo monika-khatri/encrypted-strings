@@ -1,4 +1,4 @@
-class CreateDataEncryptingKeys < ActiveRecord::Migration
+class CreateDataEncryptingKeys < ActiveRecord::Migration[5.1]
   def change
     create_table :data_encrypting_keys do |t|
       t.string :encrypted_key

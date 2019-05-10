@@ -1,4 +1,4 @@
-class CreateEncryptedStrings < ActiveRecord::Migration
+class CreateEncryptedStrings < ActiveRecord::Migration[5.1]
   def change
     create_table :encrypted_strings do |t|
       t.string :encrypted_value
