@@ -1,14 +1,17 @@
 class EncryptedString < ActiveRecord::Base
+  ## Associations
   belongs_to :data_encrypting_key
 
   attr_encrypted :value,
                  mode: :per_attribute_iv_and_salt,
                  key: :encrypted_key
 
+  ## Validations
   validates :token, presence: true, uniqueness: true
   validates :data_encrypting_key, presence: true
   validates :value, presence: true
 
+  ## Callbacks
   before_validation :set_token, :set_data_encrypting_key
 
   def encrypted_key

@@ -4,6 +4,7 @@ module Api
 
       before_action :load_encrypted_string, only: [:show, :destroy]
 
+      # POST /encrypted_strings
       def create
         @encrypted_string = EncryptedString.new(value: encrypted_string_params[:value])
         if @encrypted_string.save
@@ -14,10 +15,12 @@ module Api
         end
       end
 
+      # GET /encrypted_strings/:token
       def show
         render json: { value: @encrypted_string.value }
       end
 
+      # DELETE /encrypted_strings/:token
       def destroy
         @encrypted_string.destroy!
         head :ok
@@ -37,6 +40,5 @@ module Api
         params.require(:encrypted_string).permit(:value)
       end
     end
-
   end
 end

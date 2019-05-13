@@ -21,6 +21,11 @@ gem 'turbolinks'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 1.0.0', group: :doc
 
+# For background processing
+gem 'sidekiq', '~> 4.0.0'
+gem 'sidekiq-status', '~> 1.1.2'
+gem 'sidekiq-unique-jobs'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
