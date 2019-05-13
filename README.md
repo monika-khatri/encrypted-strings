@@ -1,4 +1,16 @@
-# Cover Interview Assignment
+### Table of Contents
+
+1. [Introduction](#introduction)
+2. [Setup](#setup)
+3. [Technology Overview](#technology-overview)
+4. [Test Suite](#test-suite)
+
+----
+
+
+# Introduction
+
+### Cover Interview Assignment
 
 For your take home assignment, you'll be extending an encrypted data store for strings. Clients post string that they want stored encrypted to the `encrypted_strings` path and receive a token that they can use to later retrieve the string. Clients may also delete a previously decrypted string using their token. 
 
@@ -51,4 +63,58 @@ What the background job(s) should do
 4. Is your code easy to understand and co-worker friendly?
 5. Is your code sufficiently tested?
 6. Can you clean up and fix bugs in existing code?
+
+----
+
+
+# Setup
+Here's how to get the app running on your local computer for development.
+
+### Prerequisites
+You must have the following to run this app:
+1. Postgres 11.2
+2. Ruby 2.6.3
+
+### Dev tools
+* Bundler is used
+
+### Installation
+Follow these instructions to setup your local development environment:
+
+1. Copy .env-example to .env and fill in the relevant details.
+2. `bundle install` 
+3. `bundle exec rake db:create db:migrate db:seed`
+4. Run `rails server` to run your rails server. 
+
+All of these commands must pass for successful installation.
+
+By default it runs at http://localhost:3000.
+
+----
+
+
+# Technology Overview
+#### Tech used:
+
+* Rails 5.2.3
+* Postgres
+
+#### Major Ruby Gems Used
+
+* Sidekiq (for background jobs)
+* Sidekiq Status for tracking sidekiq jobs' status - https://github.com/utgarda/sidekiq-status
+* Sidekiq Uniq Jobs for making sidekiq jobs uniq - https://github.com/mhenrixon/sidekiq-unique-jobs
+
+
+-------
+
+# Test Suite
+We are using `MiniTest` for writing test cases
+
+Run `rake test` to execute tests
+
+We are using intensive integration tests, so it might take a while.
+
+
+----
 
